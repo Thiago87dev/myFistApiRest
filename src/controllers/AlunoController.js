@@ -91,7 +91,7 @@ class AlunoController {
       }
 
       await aluno.destroy()
-      return res.json('Aluno apagado com sucesso')
+      return res.json(`${aluno.nome} apagado com sucesso`)
     } catch (e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
