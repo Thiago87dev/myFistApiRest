@@ -6,7 +6,7 @@ export default async (req, res, next) => {
 
   if (!authorization) {
     return res.status(401).json({
-      errors: ['Login requerido'],
+      errors: ['login required'],
     })
   }
   const [, token] = authorization.split(' ')
@@ -24,7 +24,7 @@ export default async (req, res, next) => {
 
     if (!user) {
       return res.status(401).json({
-        errors: ['Usuário inválido.'],
+        errors: ['Invalid user.'],
       })
     }
 
@@ -33,7 +33,7 @@ export default async (req, res, next) => {
     return next()
   } catch (e) {
     return res.status(401).json({
-      errors: ['Token inválido ou expirado'],
+      errors: ['Invalid or expired token.'],
     })
   }
 }
